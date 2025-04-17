@@ -2,7 +2,6 @@ import pygame
 import sys
 import copy
 
-# Constants
 WINDOW_WIDTH, WINDOW_HEIGHT = 900, 600
 CELL_SIZE = 10
 ERASER_SIZE = 10
@@ -14,7 +13,7 @@ GRAY = (200, 200, 200)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
-COLOR_PALETTE = [RED, GREEN, YELLOW]
+COLOR_PALETTE = [RED, GREEN, YELLOW,GRAY,WHITE,BLUE]
 
 def create_grid():
     grid = []
@@ -30,14 +29,13 @@ def draw_grid(screen, grid):
     for row in grid:
         for cell in row:
             pygame.draw.rect(screen, cell['color'], cell['rect'])
-            # pygame.draw.rect(screen, GRAY, cell['rect'], 1)  # Optional: draw cell border
 
 def draw_palette(screen, active_color):
     for i, color in enumerate(COLOR_PALETTE):
         rect = pygame.Rect(10 + i * 50, 10, 40, 40)
         pygame.draw.rect(screen, color, rect)
         if color == active_color:
-            pygame.draw.rect(screen, (0, 0, 0), rect, 4)  # Highlight selected color
+            pygame.draw.rect(screen, (0, 0, 0), rect, 4)  
         else:
             pygame.draw.rect(screen, (0, 0, 0), rect, 2)
 
